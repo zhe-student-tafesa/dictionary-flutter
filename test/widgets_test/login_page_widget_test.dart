@@ -1,5 +1,5 @@
 import 'package:dictionary_flutter/app/modules/login/controllers/auth_controller.dart';
-import 'package:dictionary_flutter/app/modules/login/login_page.dart';
+import 'package:dictionary_flutter/app/modules/login/views/login_page.dart';
 import 'package:dictionary_flutter/common/values/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:dictionary_flutter/common/values/string_manager.dart';
 import 'package:flutter/material.dart';
-import '../modules/login/splash_page.dart';
+import '../modules/login/views/splash_page.dart';
 import 'app_routes.dart';
 
 class FDRouterDelegate extends RouterDelegate<FlutterDicRoutePath>

@@ -4,8 +4,8 @@
 /// For each page, define a named constructor,
 
 import 'package:dictionary_flutter/app/modules/home/home_page.dart';
-import 'package:dictionary_flutter/app/modules/login/login_page.dart';
-import 'package:dictionary_flutter/app/modules/login/splash_page.dart';
+import 'package:dictionary_flutter/app/modules/login/views/login_page.dart';
+import 'package:dictionary_flutter/app/modules/login/views/splash_page.dart';
 import 'package:dictionary_flutter/common/values/string_manager.dart';
 import 'package:flutter/cupertino.dart';
 

@@ -4,7 +4,7 @@ import 'package:dictionary_flutter/common/values/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'controllers/auth_controller.dart';
+import '../controllers/auth_controller.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -42,6 +42,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             children: [
               const SizedBox(height: 20),
               TextFormField(
+                key: Key(DictionaryStrings.emailTextFormFieldKey),
                 decoration: const InputDecoration(
                   hintText: 'Enter your email',
                   hintStyle: TextStyle(color: Colors.grey),
@@ -56,6 +57,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     ),
               const SizedBox(height: 20),
               TextFormField(
+                key: Key(DictionaryStrings.passwordTextFormFieldKey),
                 obscureText: true,
                 decoration: const InputDecoration(
                   hintText: 'Enter your password',
@@ -71,6 +73,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     ),
               const Spacer(),
               ElevatedButton(
+                  key: Key(DictionaryStrings.loginButtonKey),
                   onPressed: () {
                     debugPrint('Login');
                     if (emailTextEditController.text.isNotEmpty &&

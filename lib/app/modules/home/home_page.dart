@@ -159,6 +159,7 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   Widget _buildSearchWidget() {
     return SearchBar(
+      key: Key(DictionaryStrings.homeSearchBarKey),
       hintText: "Please enter the word to look up",
       onSubmitted: (value) {
         _getMeaningFromApi(value);
