@@ -1,7 +1,5 @@
 /// run this in terminal::::  flutter test integration_test/app_test.dart
-///
-/// test how individual pieces work together as a whole,
-/// capture the performance of an application running on a real device
+
 import 'package:dictionary_flutter/app/modules/login/views/splash_page.dart';
 import 'package:dictionary_flutter/common/values/string_manager.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +11,7 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('end-to-end test', () {
-    testWidgets('tap on the  button, verify navi to MainTabPage', (tester) async {
+    testWidgets('test on the  whole process', (tester) async {
       app.main();
       await tester.pumpAndSettle();
       await pumpUntil(

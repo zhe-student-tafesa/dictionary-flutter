@@ -3,11 +3,10 @@ import 'package:dictionary_flutter/app/routes/router_delegate.dart';
 import 'package:dictionary_flutter/common/values/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../controllers/auth_controller.dart';
+import 'package:dictionary_flutter/app/modules/login/controllers/auth_controller.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -69,7 +68,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   ? Container()
                   : Text(
                       passwordError ?? '',
-                      style: TextStyle(color: Colors.red),
+                      style: const TextStyle(color: Colors.red),
                     ),
               const Spacer(),
               ElevatedButton(

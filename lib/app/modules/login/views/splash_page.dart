@@ -1,5 +1,5 @@
 /// The first page loaded when the app is running
-///
+
 import 'package:dictionary_flutter/app/routes/app_routes.dart';
 import 'package:dictionary_flutter/app/routes/router_delegate.dart';
 import 'package:flutter/material.dart';

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:dictionary_flutter/common/values/string_manager.dart';
 import 'package:flutter/material.dart';
-import '../modules/login/views/splash_page.dart';
+import 'package:dictionary_flutter/app/modules/login/views/splash_page.dart';
 import 'app_routes.dart';
 
 class FDRouterDelegate extends RouterDelegate<FlutterDicRoutePath>
@@ -42,11 +42,6 @@ class FDRouterDelegate extends RouterDelegate<FlutterDicRoutePath>
   @override
   Future<void> setNewRoutePath(FlutterDicRoutePath configuration) async {}
 
-  popAndPush(FlutterDicRoutePath router) {
-    pop();
-    push(router);
-  }
-
   push(FlutterDicRoutePath router, {bool? fullscreenDialog}) {
     switch (router.name) {
       // when push home, pop all pages first
@@ -79,14 +74,4 @@ class FDRouterDelegate extends RouterDelegate<FlutterDicRoutePath>
     }
   }
 
-  popAll() {
-    while (_pages.length > 1) {
-      _pages.remove(_pages.last);
-    }
-    notifyListeners();
-  }
-
-  bool checkPage(FlutterDicRoutePath path) {
-    return _pages.where((element) => element.name == path.name).isNotEmpty;
-  }
 }
