@@ -1,17 +1,21 @@
+import 'package:dictionary_flutter/app/modules/login/controllers/auth_controller.dart';
 import 'package:dictionary_flutter/app/network/api.dart';
+import 'package:dictionary_flutter/app/routes/app_routes.dart';
+import 'package:dictionary_flutter/app/routes/router_delegate.dart';
 import 'package:dictionary_flutter/common/values/string_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../models/response_model.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> {
   bool _inProgress = false;
   DictionaryResponseModel? responseModel;
   String noDataText = DictionaryStrings.welcomeStartSearching;
@@ -37,6 +41,13 @@ class _HomePageState extends State<HomePage> {
                 _noDataWidget(),
             ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: const Text('Logout'),
+          onPressed: () {
+            ref.read(authProvider.notifier).logout();
+            FDRouterDelegate.instance.push(FlutterDicRoutePath.splash());
+          },
         ),
       )),
     );

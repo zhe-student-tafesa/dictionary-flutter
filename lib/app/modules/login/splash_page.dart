@@ -7,6 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 
+import 'controllers/auth_controller.dart';
+
 class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 
@@ -20,9 +22,15 @@ class _SplashPageState extends ConsumerState<SplashPage> with SingleTickerProvid
     _await1SAndNavToLogin();
     super.initState();
   }
-  _await1SAndNavToLogin(){
-    Future.delayed(const Duration(seconds: 2),(){
-      FDRouterDelegate.instance.push(FlutterDicRoutePath.login());
+
+  _await1SAndNavToLogin() {
+    Future.delayed(const Duration(seconds: 1), () {
+      final alreadyLoggedIn = ref.read(authProvider.notifier).state;
+      if (alreadyLoggedIn) {
+        FDRouterDelegate.instance.push(FlutterDicRoutePath.home());
+      } else {
+        FDRouterDelegate.instance.push(FlutterDicRoutePath.login());
+      }
     });
   }
 
@@ -33,8 +41,6 @@ class _SplashPageState extends ConsumerState<SplashPage> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    double deviceWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle.light,

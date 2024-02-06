@@ -3,6 +3,8 @@ import 'package:dictionary_flutter/app/routes/router_delegate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'controllers/auth_controller.dart';
+
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -63,15 +65,17 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               passwordError == null
                   ? Container()
                   : Text(
-                passwordError ?? '',
-                style: TextStyle(color: Colors.red),
-              ),
+                      passwordError ?? '',
+                      style: TextStyle(color: Colors.red),
+                    ),
               const Spacer(),
               ElevatedButton(
                   onPressed: () {
                     debugPrint('Login');
                     if (emailTextEditController.text.isNotEmpty &&
                         passwordTextEditController.text.isNotEmpty) {
+                      ref.read(authProvider.notifier).login();
+
                       FDRouterDelegate.instance.push(FlutterDicRoutePath.home());
                     } else {
                       setState(() {
