@@ -1,5 +1,6 @@
 import 'package:dictionary_flutter/app/routes/app_routes.dart';
 import 'package:dictionary_flutter/app/routes/router_delegate.dart';
+import 'package:dictionary_flutter/common/values/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -31,7 +32,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 10.0,
-        title: const Text('Login page'),
+        title: Text(DictionaryStrings.loginPage),
         centerTitle: true,
       ),
       body: SafeArea(
